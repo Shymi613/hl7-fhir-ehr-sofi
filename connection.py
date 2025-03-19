@@ -5,6 +5,6 @@ from pymongo.server_api import ServerApi
 def connect_to_mongodb(db_name, collection_name):
     uri = "mongodb+srv://laurasofia27021:Nochebuena1_@cluster0.9fw4c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     client = MongoClient(uri, server_api=ServerApi('1'))
-    db = client[Hospital]
+    db = client[hospital]
     collection = db[pacientes]
     return collection
