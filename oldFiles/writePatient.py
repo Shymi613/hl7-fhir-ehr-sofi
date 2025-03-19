@@ -3,10 +3,10 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 
 # Función para conectar a la base de datos MongoDB
-def connect_to_mongodb(uri, hospital, pacientes):
+def connect_to_mongodb(uri, db_name, colletion_name):
     client = MongoClient(uri, server_api=ServerApi('1'))
-    db = client[hospital]
-    collection = db[pacientes]
+    db = client[db_name]
+    collection = db[colletion_name]
     return collection
 
 # Función para guardar el JSON en MongoDB
@@ -30,11 +30,11 @@ if __name__ == "__main__":
     uri = "mongodb+srv://laurasofia27021:Nochebuena1_@cluster0.9fw4c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
     # Nombre de la base de datos y la colección
-    db_name = "hospital"
-    collection_name = "pacientes"
+    db_name = "SamplePatientService"
+    collection_name = "patients"
 
     # Conectar a MongoDB
-    collection = connect_to_mongodb(uri, hospital, pacientes)
+    collection = connect_to_mongodb(uri, db_name, collectien_name)
 
     # JSON string correspondiente al artefacto Patient de HL7 FHIR
     patient_json = f'''
